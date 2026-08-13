@@ -134,12 +134,21 @@ envelope.addEventListener('click', ()=>{
 // Accept button
 acceptBtn.addEventListener('click', ()=>{
   acceptBtn.animate([{transform:'scale(1)'},{transform:'scale(.98)'},{transform:'scale(1)'}],{duration:240});
-  // final celebration
-  final.classList.add('show');
-  // small heart shower
-  showerHearts();
-  // lighten background
-  document.body.animate([{filter:'brightness(1)'},{filter:'brightness(1.05)'}],{duration:800,fill:'forwards'});
+  // gracefully hide envelope and letter so final is visible
+  try{
+    envelope.classList.add('hidden');
+    letter.classList.add('hidden');
+    envelope.classList.remove('open');
+  }catch(e){}
+
+  // small delay so hide animation finishes before showing final
+  setTimeout(()=>{
+    final.classList.add('show');
+    // small heart shower
+    showerHearts();
+    // lighten background
+    document.body.animate([{filter:'brightness(1)'},{filter:'brightness(1.05)'}],{duration:800,fill:'forwards'});
+  },360);
 });
 
 // Heart shower

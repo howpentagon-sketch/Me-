@@ -82,11 +82,18 @@ body{
 .note-text{background:linear-gradient(180deg,#fffaf8,#fff1f2);padding:18px;border-radius:12px;box-shadow:0 14px 40px rgba(107,44,74,0.06);font-size:16px;line-height:1.45;color:#5a3d42;font-family:Inter;white-space:pre-wrap}
 
 /* Final overlay */
-.final{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 50% 40%, rgba(255,240,247,0.8), transparent 30%);opacity:0;pointer-events:none;transition:opacity .6s}
+.final{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 50% 40%, rgba(255,240,247,0.8), transparent 30%);opacity:0;pointer-events:none;transition:opacity .6s;z-index:9999}
 .final.show{opacity:1;pointer-events:auto}
-.final-card{padding:28px;border-radius:16px;background:linear-gradient(180deg,#fff4f8,#fff9fb);box-shadow:0 20px 60px rgba(255,150,190,0.12);text-align:center}
+.final-card{padding:28px;border-radius:16px;background:linear-gradient(180deg,#fff4f8,#fff9fb);box-shadow:0 20px 60px rgba(255,150,190,0.12);text-align:center;transform-origin:center}
 .final-title{font-family:'Great Vibes',cursive;font-size:clamp(20px,6vw,42px);margin:0}
 .final-sub{margin-top:8px;font-size:18px}
+
+/* final pop animation */
+@keyframes finalPop{from{transform:translateY(12px) scale(.96);opacity:0}to{transform:translateY(0) scale(1);opacity:1}}
+.final.show .final-card{animation:finalPop .6s cubic-bezier(.2,.9,.2,1) both}
+
+/* utility hidden class to gracefully hide elements under final */
+.hidden{opacity:0 !important;pointer-events:none !important;transform:translateY(8px) !important;transition:opacity .36s ease, transform .36s ease}
 
 /* Floating hearts */
 #floating-hearts{position:fixed;inset:0;z-index:1;pointer-events:none}
