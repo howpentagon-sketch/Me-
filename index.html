@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Приглашение</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/src/styles.css">
+  </head>
+  <body>
+    <div id="app">
+      <!-- Background layers -->
+      <div class="bg">
+        <div class="cloud cloud-1"></div>
+        <div class="cloud cloud-2"></div>
+        <div class="lightspot spot-1"></div>
+        <div class="lightspot spot-2"></div>
+      </div>
+
+      <!-- drifting hearts container -->
+      <div id="floating-hearts" aria-hidden="true"></div>
+
+      <!-- Scenes wrapper -->
+      <main class="scene scene--1 active" id="scene1" role="main">
+        <div class="center-card">
+          <h1 class="title glow">Привет, моя любовь <span class="emoji">❤️</span></h1>
+          <p class="subtitle">Мы с тобой вместе уже <strong>217 дней</strong>.</p>
+          <button class="btn btn-puffy" id="toScene2">Как много <span class="emoji">🥺</span></button>
+        </div>
+      </main>
+
+      <main class="scene" id="scene2">
+        <div class="center-card">
+          <p class="typewriter" id="typeText" aria-live="polite"></p>
+          <button class="btn btn-outline" id="toScene3">Я рад <span class="emoji">🥺</span></button>
+        </div>
+      </main>
+
+      <main class="scene" id="scene3">
+        <div class="center-card">
+          <h2 class="title-large">Сегодня хочу пригласить тебя на свидание <span class="emoji">🥰</span></h2>
+          <button class="btn btn-puffy" id="openLetterBtn">На какое? <span class="emoji">💌</span></button>
+
+          <!-- envelope + letter interactive area -->
+          <div class="envelope-wrap" id="envelopeWrap">
+            <div class="label">Для тебя <span class="emoji">💌</span></div>
+            <div class="envelope" id="envelope" tabindex="0" role="button" aria-label="Открыть письмо">
+              <div class="envelope-flap"></div>
+              <div class="envelope-body"></div>
+            </div>
+            <div class="letter" id="letter">
+              <div class="note-text">
+                Приглашаю тебя сегодня провести классный вечер со мной.
+                Поиграть в игры, посмотреть фильм или видео и расслабиться, выпив пиво 🥰
+              </div>
+              <button class="btn btn-accept" id="acceptBtn">Я согласен ❤️</button>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <!-- final celebration overlay -->
+      <div id="final" class="final">
+        <div class="final-card">
+          <h2 class="final-title">Ура! Тогда сегодня наше свидание <span class="emoji">❤️</span></h2>
+          <p class="final-sub">Люблю тебя <span class="emoji">🥰</span></p>
+        </div>
+      </div>
+
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
